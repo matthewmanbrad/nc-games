@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => {
-  return <h1>Welcome to NC Games</h1>;
+  return <h1 className="nc-games nc-games-large">NC Games</h1>;
 };
 
 export default Header;
