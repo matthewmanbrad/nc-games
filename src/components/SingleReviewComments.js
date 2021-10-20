@@ -4,8 +4,7 @@ import useSingleReviewComments from "../hooks/useSingleReviewComments";
 import useLikeCount from "../hooks/useLikeCount";
 import useDislikeCount from "../hooks/useDislikeCount";
 
-const SingleReviewComments = () => {
-  const { review_id } = useParams();
+const SingleReviewComments = ({ review_id }) => {
   const { comments, loading, err } = useSingleReviewComments(review_id);
   const { likeCount, incLikeCount } = useLikeCount();
   const { dislikeCount, incDislikeCount } = useDislikeCount();
@@ -23,9 +22,11 @@ const SingleReviewComments = () => {
         comments.map((comment) => {
           return (
             <section>
-              <h1 class="author_name">{comment.author}</h1>
+              <h1 className="author_name">{comment.author}</h1>
               <p>{comment.body}</p>
-              <h2>Votes: {comment.votes + likeCount - dislikeCount}</h2>
+              <h2 className="votes">
+                Votes: {comment.votes + likeCount - dislikeCount}
+              </h2>
               <span>
                 <button onClick={incLikeCount} className="like_button">
                   Upvote!

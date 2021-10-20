@@ -5,6 +5,11 @@
   box-sizing: border-box;
   font-family: Raleway;
   color: #777;
+  text-align: center;
+}
+
+p {
+  font-size: 1.7rem;
 }
 
 .main-header {
@@ -16,9 +21,10 @@
 }
 
 .review_img {
-  box-sizing: border-box;
-  max-width: 500px;
-  max-height: 500px;
+  height: 300px;
+  width: 300px;
+  margin: 15px;
+  border-radius: 50%;
 }
 
 html,
@@ -59,7 +65,7 @@ body {
 
 .nc-games {
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
   margin: 0;
   font-family: Rock Salt;
   font-weight: normal;
@@ -83,5 +89,72 @@ body {
 .section-header {
   font-family: Rock Salt;
   text-align: center;
-  font-size: 4em;
+  /* font-size: 4rem; */
+  width: 100%;
+}
+
+.single_review_h1 {
+  font-family: Rock Salt;
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+}
+
+.designer_category {
+  font-family: Rock Salt;
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+}
+
+.single_review {
+  text-align: center;
+}
+
+.login_message {
+  text-align: center;
+}
+
+.login_form {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.reviews_category_title {
+  font-family: Rock Salt;
+  font-size: 3rem;
+  color: #333;
+}
+
+.review_body_title {
+  color: #333;
+}
+
+.votes {
+  color: #333;
+}
+
+.author_name {
+  color: #333;
+  font-size: 1.5rem;
+}
+
+#main_footer {
+  position: absolute;
+  bottom: 0px;
+  background-color: #56ccf2;
+  color: white;
+  padding: 0.25em 0;
+  margin: 0;
+  left: 0px;
+  width: 100%;
+  display: flex;
+}
+
+.main_footer_container {
+  display: flex;
+}
+
+.review_title {
+  color: #333;
 }

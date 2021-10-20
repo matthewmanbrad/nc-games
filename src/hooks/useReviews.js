@@ -7,6 +7,7 @@ const useReviews = (categorySlug) => {
   const [err, setErr] = useState(null);
 
   useEffect(() => {
+    setLoading(true);
     setErr(null);
     getReviews(categorySlug)
       .then((reviewsFromApi) => {
