@@ -6,7 +6,9 @@ const RequiresLogin = ({ user, isLoggedIn, children }) => {
       {isLoggedIn ? (
         children
       ) : (
-        <h1 className="login_message">Please login to view reviews!</h1>
+        <h3 className="RequiresLogin__login-message">
+          Please login to view reviews!
+        </h3>
       )}
     </div>
   );

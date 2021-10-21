@@ -24,3 +24,27 @@ export const getReviewComments = async (review_id) => {
   const { data } = await gamesApi.get(`/reviews/${review_id}/comments`);
   return data.comments;
 };
+
+export const patchReviewVotes = async (review_id, num) => {
+  const { data } = await gamesApi.patch(`/reviews/${review_id}`, {
+    inc_votes: num,
+  });
+  return data.review;
+};
+
+export const patchCommentVotes = async (comment_id, num) => {
+  const { data } = await gamesApi.patch(`/comments/${comment_id}`, {
+    inc_votes: num,
+  });
+  return data.comment;
+};
+
+export const getUsers = async () => {
+  const { data } = await gamesApi.get("/users");
+  return data.users;
+};
+
+export const getUserInfo = async (username) => {
+  const { data } = await gamesApi.get(`/users/${username}`);
+  return data.user;
+};

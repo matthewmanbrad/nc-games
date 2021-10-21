@@ -6,6 +6,7 @@ const useSingleReview = (review_id) => {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   useEffect(() => {
+    setLoading(true);
     setErr(null);
     getSingleReview(review_id)
       .then((reviewFromApi) => {
@@ -14,7 +15,8 @@ const useSingleReview = (review_id) => {
       })
       .catch((err) => {
         setLoading(false);
-        if (err.response.status === 404) {
+        console.log(err);
+        if (err.response && err.response.status === 404) {
           setErr("review not found");
         } else {
           setErr("something went wrong...");

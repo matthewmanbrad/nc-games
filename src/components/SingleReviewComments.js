@@ -1,13 +1,10 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useSingleReviewComments from "../hooks/useSingleReviewComments";
-import useLikeCount from "../hooks/useLikeCount";
-import useDislikeCount from "../hooks/useDislikeCount";
+import AlterCommentVotes from "./voting/alterCommentVotes";
 
 const SingleReviewComments = ({ review_id }) => {
   const { comments, loading, err } = useSingleReviewComments(review_id);
-  const { likeCount, incLikeCount } = useLikeCount();
-  const { dislikeCount, incDislikeCount } = useDislikeCount();
   if (loading) {
     return <h3>LOADING...</h3>;
   }
@@ -17,24 +14,21 @@ const SingleReviewComments = ({ review_id }) => {
   return (
     <section>
       {comments === [] ? (
-        <h1>No Comments To Show!</h1>
+        <h3 className="SingleReviewComments__h3--no-comments-message">
+          No Comments To Show!
+        </h3>
       ) : (
         comments.map((comment) => {
           return (
-            <section>
-              <h1 className="author_name">{comment.author}</h1>
+            <section className="SingleReview__comments-section">
+              <h3 className="singleReviewComments__section--author">
+                {comment.author}
+              </h3>
               <p>{comment.body}</p>
-              <h2 className="votes">
-                Votes: {comment.votes + likeCount - dislikeCount}
-              </h2>
-              <span>
-                <button onClick={incLikeCount} className="like_button">
-                  Upvote!
-                </button>
-                <button onClick={incDislikeCount} className="dislike_button">
-                  Downvote!
-                </button>
-              </span>
+              <AlterCommentVotes
+                comment_id={comment.comment_id}
+                votes={comment.votes}
+              />
             </section>
           );
         })

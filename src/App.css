@@ -8,11 +8,18 @@
   text-align: center;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 p {
   font-size: 1.7rem;
 }
 
-.main-header {
+.App__div--header {
   background-image: url("./images/Screenshot\ 2021-10-19\ at\ 16.59.35.png");
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.6);
@@ -20,50 +27,41 @@ p {
   padding-bottom: 30px;
 }
 
-.review_img {
+.singleReview__img--review-img {
   height: 300px;
   width: 300px;
   margin: 15px;
   border-radius: 50%;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.nav ul {
+.Nav__ul {
   margin: 0;
 }
 
-.nav li {
+.Nav__li {
   display: inline;
+  padding: 0 1%;
 }
 
-.nav-link {
+.Nav__link {
   display: inline-block;
   padding: 0.5em;
   color: white;
   text-decoration: none;
 }
 
-.nav-link:hover {
+.Nav__link:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-.main-nav {
+.Nav--main-nav {
   text-align: center;
   font-size: 1.1em;
   font-weight: lighter;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.main-nav li {
-  padding: 0 1%;
-}
-
-.nc-games {
+.title--nc-games {
   text-align: center;
   font-size: 3em;
   margin: 0;
@@ -72,75 +70,83 @@ body {
   color: white;
 }
 
-.nc-games-large {
+.Header__title {
   font-size: 6em;
 }
 
-.content-section {
+.App__section--main-content {
   margin: 1em;
-}
-
-.container {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 1.5em;
+  min-height: 100%;
+  margin-bottom: -50px;
 }
 
-.section-header {
+.Home__header {
   font-family: Rock Salt;
   text-align: center;
-  /* font-size: 4rem; */
+  font-size: 2rem;
   width: 100%;
 }
 
-.single_review_h1 {
+.SingleReview__info--title {
   font-family: Rock Salt;
   text-align: center;
   font-size: 2em;
   color: #333;
 }
 
-.designer_category {
+.SingleReview__info--designer-category {
   font-family: Rock Salt;
   text-align: center;
   font-size: 2em;
   color: #333;
 }
 
-.single_review {
+.SingleReview__section {
   text-align: center;
+  position: static;
+  padding-bottom: 300px;
 }
 
-.login_message {
+.RequiresLogin__login-message {
   text-align: center;
+  font-size: 3rem;
 }
 
-.login_form {
+.Header__logged-in-message {
   color: white;
   font-size: 1.3rem;
 }
 
-.reviews_category_title {
+.LogInForm__log-in-instructions {
+  color: white;
+  font-size: 1.3rem;
+}
+
+.Reviews__category--title {
   font-family: Rock Salt;
   font-size: 3rem;
   color: #333;
 }
 
-.review_body_title {
+.SingleReview__review-body--header {
   color: #333;
 }
 
-.votes {
+.SingleReview--amount-of-votes,
+.SingleReviewComments--amount-of-votes {
   color: #333;
 }
 
-.author_name {
+.singleReviewComments__section--author {
   color: #333;
   font-size: 1.5rem;
 }
 
-#main_footer {
-  position: absolute;
+.Footer__div {
+  position: fixed;
   bottom: 0px;
   background-color: #56ccf2;
   color: white;
@@ -149,12 +155,35 @@ body {
   left: 0px;
   width: 100%;
   display: flex;
+  margin-top: 200px;
 }
 
-.main_footer_container {
-  display: flex;
-}
-
-.review_title {
+.Reviews__h2--review-title {
   color: #333;
+}
+
+.SingleReviewComments__h3--no-comments-message {
+  color: #333;
+  font-size: 2rem;
+}
+
+.voting__button {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 2rem;
+}
+
+.SingleReview__comments-section {
+  margin-top: 50px;
+}
+
+.Expandable__button--show-comments {
+  height: 60px;
+  width: 170px;
+  margin-top: 40px;
+  font-family: Raleway;
+  font-size: 1.5rem;
 }

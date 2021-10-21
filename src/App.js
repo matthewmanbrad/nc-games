@@ -15,12 +15,12 @@ function App() {
   const { user, setUser } = useContext(UserContext);
   return (
     <BrowserRouter className="browserRouter">
-      <div class="main-header">
+      <div class="App__div--header">
         <Nav />
-        <Header user={user} />
+        <Header user={user} setUser={setUser} />
         <LogInForm setUser={setUser} />
       </div>
-      <section className="content-section container">
+      <section className="App__section--main-content container">
         <Switch>
           <Route exact path="/">
             <Home />
@@ -37,6 +37,7 @@ function App() {
             </Route>
           </RequiresLogin>
         </Switch>
+        <div className="push"></div>
       </section>
       <Footer />
     </BrowserRouter>

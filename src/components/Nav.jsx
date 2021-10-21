@@ -11,18 +11,18 @@ const Nav = () => {
     });
   }, []);
   return (
-    <nav className="nav main-nav">
-      <ul>
-        <li>
-          <Link className="nav-link" key="home" to={"/"}>
+    <nav className="Nav--main-nav">
+      <ul className="Nav__ul">
+        <li className="Nav__li">
+          <Link className="Nav__link" key="home" to={"/"}>
             HOME
           </Link>
         </li>
         {categories.map((category) => {
           return (
-            <li>
+            <li className="Nav__li">
               <Link
-                className="nav-link"
+                className="Nav__link"
                 key={category.slug}
                 to={`/categories/${category.slug}`}
               >
@@ -31,8 +31,8 @@ const Nav = () => {
             </li>
           );
         })}
-        <li>
-          <Link className="nav-link" key="allReviews" to={"/reviews"}>
+        <li className="Nav__li">
+          <Link className="Nav__link" key="allReviews" to={"/reviews"}>
             ALL REVIEWS
           </Link>
         </li>

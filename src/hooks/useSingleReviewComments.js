@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { getReviewComments } from "../utils/api";
 
@@ -15,7 +14,7 @@ const useSingleReviewComments = (review_id) => {
       })
       .catch((err) => {
         setLoading(false);
-        if (err.response.status === 404) {
+        if (err.response && err.response.status === 404) {
           setErr("review not found");
         } else {
           setErr("something went wrong...");
