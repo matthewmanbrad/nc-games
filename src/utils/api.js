@@ -8,9 +8,11 @@ export const getCategories = async () => {
   return data.categories;
 };
 
-export const getReviews = async (categorySlug) => {
+export const getReviews = async (categorySlug, sortBy) => {
   let path = "/reviews";
-  if (categorySlug) path += `?category=${categorySlug}`;
+  if (categorySlug && !sortBy) path += `?category=${categorySlug}`;
+  if (sortBy && !categorySlug) path += `?${sortBy}`;
+  if (sortBy && categorySlug) path += `?category=${categorySlug}&${sortBy}`;
   const { data } = await gamesApi.get(path);
   return data.reviews;
 };
