@@ -107,7 +107,7 @@ p {
 .SingleReview__section {
   text-align: center;
   position: static;
-  padding-bottom: 300px;
+  padding-bottom: 200px;
 }
 
 .RequiresLogin__login-message {
@@ -195,4 +195,15 @@ p {
 .LogInForm__input--log-in {
   height: 1.8rem;
   font-size: 1.3rem;
+}
+
+.Header--log-out-button {
+  height: 3rem;
+  width: 4.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.reviews {
+  padding-bottom: 200px;
 }

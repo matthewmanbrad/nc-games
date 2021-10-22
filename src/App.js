@@ -40,7 +40,7 @@ function App() {
               <Reviews />
             </Route>
             <Route exact path="/reviews/:review_id">
-              <SingleReview />
+              <SingleReview user={user} />
             </Route>
           </RequiresLogin>
         </Switch>

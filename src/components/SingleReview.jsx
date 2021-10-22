@@ -5,7 +5,7 @@ import Expandable from "./Expandable";
 import SingleReviewComments from "./SingleReviewComments";
 import AlterReviewVotes from "./voting/AlterReviewVotes";
 
-const SingleReview = () => {
+const SingleReview = ({ user }) => {
   const { review_id } = useParams();
   const { review, loading, err } = useSingleReview(review_id);
   if (loading) {
@@ -34,7 +34,10 @@ const SingleReview = () => {
         <AlterReviewVotes review_id={review.review_id} votes={review.votes} />
       </span>
       <Expandable amountOfComments={review.comment_count}>
-        <SingleReviewComments review_id={review_id}></SingleReviewComments>
+        <SingleReviewComments
+          review_id={review_id}
+          username={user}
+        ></SingleReviewComments>
       </Expandable>
     </section>
   );

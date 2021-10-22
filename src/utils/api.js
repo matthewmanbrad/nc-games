@@ -48,3 +48,11 @@ export const getUserInfo = async (username) => {
   const { data } = await gamesApi.get(`/users/${username}`);
   return data.user;
 };
+
+export const postComment = async (review_id, username, body) => {
+  const { data } = await gamesApi.post(`reviews/${review_id}/comments`, {
+    username: username,
+    body: body,
+  });
+  return data.comment;
+};

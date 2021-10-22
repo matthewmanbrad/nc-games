@@ -6,6 +6,7 @@ const LogInForm = ({ setUser, user }) => {
   const [newUser, setNewUser] = useState("");
   const [isInvalidUser, setIsInvalidUser] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsInvalidUser(false);

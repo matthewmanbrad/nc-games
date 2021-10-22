@@ -1,5 +1,4 @@
 import React from "react";
-import { getUserInfo } from "../utils/api";
 
 const Header = ({ user, setUser }) => {
   const logOutUser = (user) => {
@@ -12,7 +11,7 @@ const Header = ({ user, setUser }) => {
       {user && (
         <span>
           <p className="Header__logged-in-message">logged in as {user}</p>
-          <button
+          <button className='Header--log-out-button'
             onClick={() => {
               logOutUser(user);
             }}

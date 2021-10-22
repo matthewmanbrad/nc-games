@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
 import useSingleReviewComments from "../hooks/useSingleReviewComments";
 import AlterCommentVotes from "./voting/alterCommentVotes";
+import { postComment } from "../utils/api";
 
-const SingleReviewComments = ({ review_id }) => {
+const SingleReviewComments = ({ review_id, username }) => {
   const { comments, loading, err } = useSingleReviewComments(review_id);
+  const [isError, setIsError] = useState(false);
+  const [commentBody, setCommentBody] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(false);
+    setIsError(false);
+    postComment(review_id, username, commentBody)
+      .then((comment) => {
+        setSubmitted(true);
+      })
+      .catch(() => {
+        setIsError(true);
+      });
+  };
+
   if (loading) {
     return <h3>LOADING...</h3>;
   }
@@ -33,6 +52,28 @@ const SingleReviewComments = ({ review_id }) => {
           );
         })
       )}
+      <form onSubmit={handleSubmit}>
+        <label
+          htmlFor="post_comment"
+          className="SingleReviewComments--post-comment-instructions"
+        >
+          Add Comment Here:{" "}
+        </label>
+        <input
+          type="textarea"
+          id="post_comment"
+          placeholder="write comment here..."
+          className="SingleReviewComments__input--post-message"
+          onChange={(e) => {
+            setCommentBody(e.target.value);
+          }}
+          value={commentBody}
+          required
+        />
+        <button>Post Comment!</button>
+        {submitted && <h3>comment posted!</h3>}
+        {isError && <h3>Unable to post comment!</h3>}
+      </form>
     </section>
   );
 };
