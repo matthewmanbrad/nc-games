@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -13,6 +13,13 @@ import Footer from "./components/Footer";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
+  useEffect(() => {
+    const prevLoggedInUser = localStorage.getItem("loggedInUser");
+    if (prevLoggedInUser) {
+      const userObj = JSON.parse(localStorage.getItem("loggedInUser"));
+      setUser(userObj.username);
+    }
+  }, []);
   return (
     <BrowserRouter className="browserRouter">
       <div class="App__div--header">
