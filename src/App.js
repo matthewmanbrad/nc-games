@@ -25,7 +25,7 @@ function App() {
       <div class="App__div--header">
         <Nav />
         <Header user={user} setUser={setUser} />
-        <LogInForm setUser={setUser} />
+        <LogInForm setUser={setUser} user={user} />
       </div>
       <section className="App__section--main-content container">
         <Switch>

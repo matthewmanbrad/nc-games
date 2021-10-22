@@ -187,3 +187,12 @@ p {
   font-family: Raleway;
   font-size: 1.5rem;
 }
+
+.LogInForm--invalid-username-message {
+  color: white;
+}
+
+.LogInForm__input--log-in {
+  height: 1.8rem;
+  font-size: 1.3rem;
+}
