@@ -5,7 +5,6 @@ const useReviews = (categorySlug, sortBy) => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
-  console.log(sortBy, "in hook");
   useEffect(() => {
     setLoading(true);
     setErr(null);

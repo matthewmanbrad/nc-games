@@ -21,7 +21,7 @@ const useSingleReviewComments = (review_id) => {
         }
       });
   }, [review_id]);
-  return { comments, loading, err };
+  return { comments, loading, err, setComments };
 };
 
 export default useSingleReviewComments;
