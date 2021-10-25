@@ -21,10 +21,13 @@ const AlterCommentVotes = ({ comment_id, votes }) => {
         Votes: {votes + votesChange}
       </h2>
       <span>
-        <button className="voting__button" onClick={() => handleVote(1)}>
+        <button className="voting__button--plus" onClick={() => handleVote(1)}>
           +
         </button>
-        <button className="voting__button" onClick={() => handleVote(-1)}>
+        <button
+          className="voting__button--minus"
+          onClick={() => handleVote(-1)}
+        >
           -
         </button>
       </span>

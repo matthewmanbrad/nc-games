@@ -28,6 +28,5 @@ export const timeConverter = (timestamp) => {
   var sec = a.getSeconds();
   var time =
     date + " " + month + " " + year + " " + hour + ":" + min + ":" + sec;
-  console.log(time);
   return time;
 };

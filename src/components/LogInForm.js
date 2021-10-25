@@ -20,7 +20,6 @@ const LogInForm = ({ setUser, user }) => {
       })
       .catch((err) => {
         setIsInvalidUser(true);
-        console.log("Invalid username");
         console.dir(err);
       });
   };

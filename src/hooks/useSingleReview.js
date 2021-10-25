@@ -15,7 +15,6 @@ const useSingleReview = (review_id) => {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
         if (err.response && err.response.status === 404) {
           setErr("review not found");
         } else {

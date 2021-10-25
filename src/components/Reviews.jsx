@@ -9,7 +9,6 @@ const Reviews = () => {
   const { categorySlug } = useParams();
   const [sortBy, setSortBy] = useState([]);
   const { reviews, loading, err } = useReviews(categorySlug, sortBy);
-  console.log(sortBy, "in reviews");
 
   if (loading) {
     return <h3>LOADING...</h3>;
@@ -27,21 +26,26 @@ const Reviews = () => {
       ) : (
         <h2>All Reviews!</h2>
       )}
-      <h2>sort reviews by:</h2>
-      <nav>
-        <ul>
-          <li>
-            <button onClick={() => setSortBy("sort_by=created_at")}>
-              Date
-            </button>
-            <button onClick={() => setSortBy("sort_by=comment_count")}>
-              Amount Of Comments
-            </button>
-            <button onClick={() => setSortBy("sort_by=votes")}>
-              Amount Of Votes
-            </button>
-          </li>
-        </ul>
+      <h2 className="Reviews__sort-by-header">sort reviews by:</h2>
+      <nav className="Reviews__container--sort-by-buttons">
+        <button
+          className="Reviews__sort-by-button"
+          onClick={() => setSortBy("sort_by=created_at")}
+        >
+          Date
+        </button>
+        <button
+          className="Reviews__sort-by-button"
+          onClick={() => setSortBy("sort_by=comment_count")}
+        >
+          Amount Of Comments
+        </button>
+        <button
+          className="Reviews__sort-by-button"
+          onClick={() => setSortBy("sort_by=votes")}
+        >
+          Amount Of Votes
+        </button>
       </nav>
       <ul>
         {reviews.map((review) => {

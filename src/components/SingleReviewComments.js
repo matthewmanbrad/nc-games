@@ -52,7 +52,11 @@ const SingleReviewComments = ({ review_id, username }) => {
                 votes={comment.votes}
               />
               {comment.author === username && (
-                <RemoveComment comment_id={comment.comment_id}></RemoveComment>
+                <RemoveComment
+                  comment_id={comment.comment_id}
+                  comments={comments}
+                  setComments={setComments}
+                ></RemoveComment>
               )}
             </section>
           );
@@ -75,7 +79,6 @@ const SingleReviewComments = ({ review_id, username }) => {
           required
         />
         <button>Post Comment!</button>
-        {submitted && <h3>comment posted!</h3>}
         {isError && <h3>Unable to post comment!</h3>}
       </form>
     </section>

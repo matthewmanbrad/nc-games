@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { deleteComment } from "../utils/api";
 
-const RemoveComment = ({ comment_id }) => {
+const RemoveComment = ({ comment_id, comments, setComments }) => {
   const [isError, setIsError] = useState(false);
   const [deleted, setDeleted] = useState(false);
 
@@ -11,6 +11,13 @@ const RemoveComment = ({ comment_id }) => {
     setDeleted(false);
     deleteComment(comment_id)
       .then(() => {
+        const newComments = [];
+        for (let i = 0; i < comments.length; i++) {
+          if (comments[i].comment_id !== comment_id) {
+            newComments.push(comments[i]);
+          }
+        }
+        setComments(newComments);
         setDeleted(true);
       })
       .catch(() => {
@@ -21,6 +28,7 @@ const RemoveComment = ({ comment_id }) => {
   return (
     <div>
       <button
+        className="RemoveComment__button"
         onClick={() => {
           handleDelete(comment_id);
         }}
