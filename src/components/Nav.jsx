@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCategories } from "../utils/api";
-import { capitalizeStrings } from "../utils/utils_functions";
 
 const Nav = () => {
   const [categories, setCategories] = useState([]);

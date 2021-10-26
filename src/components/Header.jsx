@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Header = ({ user, setUser }) => {
   const logOutUser = (user) => {
@@ -21,13 +20,6 @@ const Header = ({ user, setUser }) => {
             Log Out!
           </button>
         </span>
-      )}
-      {!user && (
-        <div>
-          <Link to="/register">
-            <button className="Header__register-button">Register</button>
-          </Link>
-        </div>
       )}
     </div>
   );

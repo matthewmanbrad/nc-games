@@ -52,7 +52,10 @@ const Reviews = () => {
           return (
             <li key={review.review_id}>
               <section className="review_section">
-                <Link to={`/reviews/${review.review_id}`}>
+                <Link
+                  to={`/reviews/${review.review_id}`}
+                  key={review.review_id}
+                >
                   <h2 className="Reviews__h2--review-title">{review.title}</h2>
                 </Link>
                 <h4>Designer: {review.designer}</h4>

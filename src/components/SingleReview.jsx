@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useSingleReview from "../hooks/useSingleReview";
 import Expandable from "./Expandable";
 import SingleReviewComments from "./SingleReviewComments";
@@ -8,6 +8,7 @@ import AlterReviewVotes from "./voting/AlterReviewVotes";
 const SingleReview = ({ user }) => {
   const { review_id } = useParams();
   const { review, loading, err } = useSingleReview(review_id);
+
   if (loading) {
     return <h3>LOADING...</h3>;
   }
@@ -18,15 +19,16 @@ const SingleReview = ({ user }) => {
     <section className="SingleReview__section">
       <h3 className="SingleReview__info--title">{review.title}</h3>
 
-      <h4 class="SingleReview__info--designer-category">
+      <h4 className="SingleReview__info--designer-category">
         Designer: {review.designer}
       </h4>
-      <h4 class="SingleReview__info--designer-category">
+      <h4 className="SingleReview__info--designer-category">
         Category: {review.category}
       </h4>
       <img
         className="singleReview__img--review-img"
         src={review.review_img_url}
+        alt={review.title}
       />
       <h2 className="SingleReview__review-body--header">Review</h2>
       <p>{review.review_body}</p>
