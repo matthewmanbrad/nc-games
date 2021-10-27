@@ -24,8 +24,8 @@ function App() {
     <BrowserRouter className="browserRouter">
       <div className="App__div--header">
         <Nav />
-        <Header user={user} setUser={setUser} />
-        <LogInForm setUser={setUser} user={user} />
+        <Header />
+        <LogInForm />
       </div>
       <section className="App__section--main-content container">
         <Switch>
@@ -40,7 +40,7 @@ function App() {
               <Reviews />
             </Route>
             <Route exact path="/reviews/:review_id">
-              <SingleReview user={user} />
+              <SingleReview />
             </Route>
           </RequiresLogin>
         </Switch>

@@ -5,16 +5,40 @@
 
 > Games review app where you are able to post reviews, as well as like, dislike and comment on other reviews.
 
-## Install
+## Instructions
+
+To clone this repo down, type in your terminal:
+
+```sh
+git clone https://github.com/matthewmanbrad/nc-games
+```
+
+- You then need to cd into this repo and open the file in your code editor.
+
+- ## Install
 
 ```sh
 npm install
 ```
 
-## Usage
+- ## Usage
 
 ```sh
 npm run start
+```
+
+## Node Version
+
+```sh
+v16.6.1
+```
+
+## Backend Repo
+
+The backend project I created for this repo can be found by accessing the following URL:
+
+```sh
+https://github.com/matthewmanbrad/be-nc-games
 ```
 
 ## Author
@@ -23,3 +47,7 @@ npm run start
 
 - Github: [@matthewmanbrad](https://github.com/matthewmanbrad)
 - LinkedIn: [@Brad Matthewman](https://linkedin.com/in/brad-matthewman)
+
+```
+
+```
