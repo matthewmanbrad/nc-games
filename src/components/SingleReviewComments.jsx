@@ -11,9 +11,6 @@ const SingleReviewComments = ({ review_id, username }) => {
   const [isError, setIsError] = useState(false);
   const [commentBody, setCommentBody] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  console.log(commentBody);
-  console.log(username);
-  console.log(review_id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
