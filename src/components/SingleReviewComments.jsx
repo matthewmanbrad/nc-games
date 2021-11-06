@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useSingleReviewComments from "../hooks/useSingleReviewComments";
 import AlterCommentVotes from "./voting/alterCommentVotes";
 import { postComment } from "../utils/api";
@@ -9,8 +9,11 @@ const SingleReviewComments = ({ review_id, username }) => {
   const { comments, loading, err, setComments } =
     useSingleReviewComments(review_id);
   const [isError, setIsError] = useState(false);
-  const [commentBody, setCommentBody] = useState(null);
+  const [commentBody, setCommentBody] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  console.log(commentBody);
+  console.log(username);
+  console.log(review_id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,12 +21,14 @@ const SingleReviewComments = ({ review_id, username }) => {
     setIsError(false);
     postComment(review_id, username, commentBody)
       .then((comment) => {
+        console.log(`${comment}`);
         setSubmitted(true);
         setComments([...comments, comment]);
         setCommentBody("");
       })
-      .catch(() => {
+      .catch((err) => {
         setIsError(true);
+        console.dir(err);
       });
   };
 
@@ -42,7 +47,10 @@ const SingleReviewComments = ({ review_id, username }) => {
       ) : (
         comments.map((comment) => {
           return (
-            <section className="SingleReview__comments-section">
+            <section
+              key={comment.comment_id}
+              className="SingleReview__comments-section"
+            >
               <h3 className="singleReviewComments__section--author">
                 {comment.author}
               </h3>

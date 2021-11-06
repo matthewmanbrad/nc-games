@@ -12,14 +12,14 @@ const Nav = () => {
   return (
     <nav className="Nav--main-nav">
       <ul className="Nav__ul">
-        <li className="Nav__li">
+        <li className="Nav__li" key="home">
           <Link className="Nav__link" key="home" to={"/"}>
             HOME
           </Link>
         </li>
         {categories.map((category) => {
           return (
-            <li className="Nav__li">
+            <li key={category.slug} className="Nav__li">
               <Link
                 className="Nav__link"
                 key={category.slug}

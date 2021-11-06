@@ -24,8 +24,8 @@ function App() {
     <BrowserRouter className="browserRouter">
       <div className="App__div--header">
         <Nav />
-        <Header />
-        <LogInForm />
+        <Header user={user} setUser={setUser} />
+        <LogInForm user={user} setUser={setUser} />
       </div>
       <section className="App__section--main-content container">
         <Switch>

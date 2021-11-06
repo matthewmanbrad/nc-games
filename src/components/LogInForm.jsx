@@ -5,7 +5,7 @@ import { getUserInfo } from "../utils/api";
 const LogInForm = ({ setUser, user }) => {
   const [newUser, setNewUser] = useState("");
   const [isInvalidUser, setIsInvalidUser] = useState(false);
-  const [setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();

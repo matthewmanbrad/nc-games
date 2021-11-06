@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import useSingleReview from "../hooks/useSingleReview";
 import Expandable from "./Expandable";
 import SingleReviewComments from "./SingleReviewComments";
 import AlterReviewVotes from "./voting/AlterReviewVotes";
+import { UserContext } from "../contexts/User";
 
-const SingleReview = ({ user }) => {
+const SingleReview = () => {
+  const { user } = useContext(UserContext);
   const { review_id } = useParams();
   const { review, loading, err } = useSingleReview(review_id);
 

@@ -47,7 +47,3 @@ https://github.com/matthewmanbrad/be-nc-games
 
 - Github: [@matthewmanbrad](https://github.com/matthewmanbrad)
 - LinkedIn: [@Brad Matthewman](https://linkedin.com/in/brad-matthewman)
-
-```
-
-```
