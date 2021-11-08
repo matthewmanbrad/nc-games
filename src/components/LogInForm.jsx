@@ -14,7 +14,6 @@ const LogInForm = () => {
     console.log(newUser, "IN login form component");
     getUserInfo(newUser)
       .then((user) => {
-        console.log(user);
         setUser(user.username);
         localStorage.setItem("loggedInUser", JSON.stringify(user));
       })
@@ -45,8 +44,13 @@ const LogInForm = () => {
             className="LogInForm__input--log-in"
           />
           <button>LOGIN!</button>
+          {submitted && (
+            <h2 className="LogInForm--username-message">
+              Invalid username, please try again
+            </h2>
+          )}
           {isInvalidUser && (
-            <h2 className="LogInForm--invalid-username-message">
+            <h2 className="LogInForm--username-message">
               Invalid username, please try again
             </h2>
           )}{" "}

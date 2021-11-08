@@ -72,5 +72,6 @@ export const deleteComment = async (comment_id) => {
 
 export const postReview = async (review) => {
   const { data } = await gamesApi.post("/reviews", review);
+  console.log(review);
   return data.review;
 };

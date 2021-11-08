@@ -4,7 +4,7 @@ import useReviews from "../hooks/useReviews";
 import { UserContext } from "../contexts/User";
 
 const WriteReview = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { reviews, loading, err, setReviews } = useReviews();
   const [newReview, setNewReview] = useState({ owner: user });
   const [isError, setIsError] = useState(false);
@@ -15,6 +15,7 @@ const WriteReview = () => {
     e.preventDefault();
     setSubmitted(false);
     setIsError(false);
+    console.log(newReview, "<<<<<IN WRITE REVIEW");
     postReview(newReview)
       .then((review) => {
         setReviewTimeout(true);
@@ -34,7 +35,7 @@ const WriteReview = () => {
   if (loading) {
     return <h3>LOADING...</h3>;
   }
-  if (err) {
+  if (err && isError) {
     return <p>{err}</p>;
   }
 
@@ -95,8 +96,8 @@ const WriteReview = () => {
             }}
             id="category"
             name="category"
-            required
           >
+            <option value=""></option>
             <option value="strategy">Strategy</option>
             <option value="hidden-roles">Hidden Roles</option>
             <option value="dexterity">Dexterity</option>
