@@ -8,12 +8,18 @@ export const getCategories = async () => {
   return data.categories;
 };
 
-export const getReviews = async (categorySlug, sortBy) => {
+export const getReviews = async (categorySlug, sortBy, pageNumber) => {
   let path = "/reviews";
-  if (categorySlug && !sortBy) path += `?category=${categorySlug}`;
-  if (sortBy && !categorySlug) path += `?${sortBy}`;
-  if (sortBy && categorySlug) path += `?category=${categorySlug}&${sortBy}`;
+  const extraQueries = [];
+  if (categorySlug) extraQueries.push(`category=${categorySlug}`);
+  if (sortBy) extraQueries.push(`sort_by=${sortBy}`);
+  if (pageNumber) extraQueries.push(`p=${pageNumber}`);
+  if (categorySlug || sortBy || pageNumber) {
+    path += `?${extraQueries.join("&")}`;
+  }
+
   const { data } = await gamesApi.get(path);
+
   return data.reviews;
 };
 
@@ -48,11 +54,12 @@ export const getUsers = async () => {
 
 export const getUserInfo = async (username) => {
   const { data } = await gamesApi.get(`/users/${username}`);
+  console.log(data.user);
   return data.user;
 };
 
 export const postComment = async (review_id, user, comment) => {
-  const { data } = await gamesApi.post(`reviews/${review_id}/comments`, {
+  const { data } = await gamesApi.post(`/reviews/${review_id}/comments`, {
     username: user,
     body: comment,
   });
@@ -60,5 +67,10 @@ export const postComment = async (review_id, user, comment) => {
 };
 
 export const deleteComment = async (comment_id) => {
-  await gamesApi.delete(`comments/${comment_id}`);
+  await gamesApi.delete(`/comments/${comment_id}`);
+};
+
+export const postReview = async (review) => {
+  const { data } = await gamesApi.post("/reviews", review);
+  return data.review;
 };

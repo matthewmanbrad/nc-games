@@ -6,6 +6,7 @@ const useSingleReviewComments = (review_id) => {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   useEffect(() => {
+    setLoading(true);
     setErr(null);
     getReviewComments(review_id)
       .then((commentsFromApi) => {

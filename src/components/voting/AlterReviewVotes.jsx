@@ -17,6 +17,11 @@ const AlterReviewVotes = ({ review_id, votes }) => {
     });
   };
 
+  const resetButtons = () => {
+    setHasVotedMinus(false);
+    setHasVotedPlus(false);
+  };
+
   return (
     <>
       <h2 className="SingleReview--amount-of-votes">
@@ -55,6 +60,7 @@ const AlterReviewVotes = ({ review_id, votes }) => {
           </button>
         )}
       </span>
+      {hasVotedPlus && hasVotedMinus && resetButtons()}
       {isError && <p>Something went wrong!</p>}
     </>
   );

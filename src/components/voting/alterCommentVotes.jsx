@@ -17,6 +17,11 @@ const AlterCommentVotes = ({ comment_id, votes }) => {
     });
   };
 
+  const resetButtons = () => {
+    setHasVotedMinus(false);
+    setHasVotedPlus(false);
+  };
+
   return (
     <>
       <h2 className="SingleReviewComments--amount-of-votes">
@@ -55,6 +60,7 @@ const AlterCommentVotes = ({ comment_id, votes }) => {
           </button>
         )}
       </span>
+      {hasVotedPlus && hasVotedMinus && resetButtons()}
     </>
   );
 };

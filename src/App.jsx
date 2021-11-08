@@ -10,6 +10,7 @@ import { UserContext } from "./contexts/User";
 import LogInForm from "./components/LogInForm";
 import RequiresLogin from "./components/RequiresLogin";
 import Footer from "./components/Footer";
+import WriteReview from "./components/WriteReview";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -24,8 +25,8 @@ function App() {
     <BrowserRouter className="browserRouter">
       <div className="App__div--header">
         <Nav />
-        <Header user={user} setUser={setUser} />
-        <LogInForm user={user} setUser={setUser} />
+        <Header />
+        <LogInForm />
       </div>
       <section className="App__section--main-content container">
         <Switch>
@@ -41,6 +42,9 @@ function App() {
             </Route>
             <Route exact path="/reviews/:review_id">
               <SingleReview />
+            </Route>
+            <Route exact path="/write-review">
+              <WriteReview />
             </Route>
           </RequiresLogin>
         </Switch>

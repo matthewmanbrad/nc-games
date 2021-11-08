@@ -162,6 +162,7 @@ p {
   display: flex;
   margin-top: 200px;
   height: 10%;
+  z-index: 999;
 }
 
 .Reviews__h2--review-title {
@@ -186,6 +187,12 @@ p {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
     rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  transition: transform 250ms;
+  cursor: pointer;
+}
+
+.voting__button--plus:hover {
+  transform: translateY(-10px);
 }
 
 .voting__button--plus-clicked {
@@ -216,6 +223,12 @@ p {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
     rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  transition: transform 250ms;
+  cursor: pointer;
+}
+
+.voting__button--minus:hover {
+  transform: translateY(-10px);
 }
 
 .voting__button--minus-clicked {
@@ -238,22 +251,235 @@ p {
   padding-bottom: 30px;
 }
 
-.Expandable__button--show-comments {
-  height: 70px;
-  width: 170px;
-  margin-top: 40px;
+.Styled-button-large {
   font-family: Raleway;
-  font-size: 1.5rem;
-  background-color: #56ccf2;
-  color: white;
+  color: #042d3a;
   border: 0;
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
     rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  background-color: #56ccf2;
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+  color: #026080;
+  transition: all 0.3s;
+  position: relative;
+  font-weight: bold;
+}
+
+.Styled-button-large span {
+  transition: all 0.3s;
+}
+
+.Styled-button-large::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.1, 1);
+  color: #026080;
+}
+
+.Styled-button-large:hover span {
+  letter-spacing: 2px;
+}
+
+.Styled-button-large:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.Styled-button-large::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #026080;
+}
+
+.Styled-button-large:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+
+.Styled-button-small {
+  font-family: Raleway;
+  color: #042d3a;
+  border: 0;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+  margin-left: 10px;
+  margin-top: 40px;
+  font-size: 1rem;
+  background-color: #56ccf2;
+  line-height: 25px;
+  height: 25px;
+  text-align: center;
+  width: 125px;
+  cursor: pointer;
+  color: #026080;
+  transition: all 0.3s;
+  position: relative;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.Styled-button-small span {
+  transition: all 0.3s;
+}
+
+.Styled-button-small::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.1, 1);
+  color: #026080;
+}
+
+.Styled-button-small:hover span {
+  letter-spacing: 2px;
+}
+
+.Styled-button-small:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.Styled-button-small::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #026080;
+}
+
+.Styled-button-small:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
+}
+
+.Styled-button-small-disabled {
+  background-color: #333;
 }
 
 .LogInForm--invalid-username-message {
   color: white;
+}
+
+.Styled-button-medium {
+  font-family: Raleway;
+  color: #042d3a;
+  border: 0;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+  margin-left: 10px;
+  margin-top: 40px;
+  font-size: 1rem;
+  background-color: #56ccf2;
+  line-height: 25px;
+  height: 50px;
+  text-align: center;
+  width: 125px;
+  cursor: pointer;
+  color: #026080;
+  transition: all 0.3s;
+  position: relative;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.Styled-button-medium span {
+  transition: all 0.3s;
+}
+
+.Styled-button-medium::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  transform: scale(0.1, 1);
+  color: #026080;
+}
+
+.Styled-button-medium:hover span {
+  letter-spacing: 2px;
+}
+
+.Styled-button-medium:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.Styled-button-medium::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #026080;
+}
+
+.Styled-button-medium:hover::after {
+  opacity: 0;
+  transform: scale(0.1, 1);
 }
 
 .LogInForm__input--log-in {
@@ -274,19 +500,13 @@ p {
 
 .SingleReviewComments--post-comment-instructions {
   margin-top: 50px;
-}
-
-.RemoveComment__button {
-  margin: 20px;
-  height: 3rem;
-  width: 10rem;
-  font-size: 1.2rem;
-  background-color: #56ccf2;
-  color: white;
+  font-size: 1.3rem;
+  color: #333;
 }
 
 .Reviews__sort-by-header {
   color: #333;
+  font-size: 1.5rem;
 }
 
 .Reviews__container--sort-by-buttons {
@@ -311,4 +531,58 @@ p {
 
 .SingleReviewComments__input--post-message {
   height: 50px;
+  font-size: 1.2rem;
+}
+
+.comment-review__posted-message {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.Add-comment-here {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 100%;
+  padding-bottom: 10px;
+}
+
+.WriteReview-instruction {
+  position: relative;
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+.WriteReview-box {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 1.5rem;
+}
+
+.WriteReview-box-textArea {
+  width: 100%;
+  height: 200px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  font-size: 1.5rem;
+  border-bottom: 200px;
+}
+
+.WriteReviewContainer {
+  align-content: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding-bottom: 150px;
+  margin-bottom: 150px;
 }

@@ -2,13 +2,22 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useReviews from "../hooks/useReviews";
 import { capitalizeStrings } from "../utils/utils_functions";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { timeConverter } from "../utils/utils_functions";
 
 const Reviews = () => {
+  const [pageNumber, setPageNumber] = useState(1);
   const { categorySlug } = useParams();
-  const [sortBy, setSortBy] = useState([]);
-  const { reviews, loading, err } = useReviews(categorySlug, sortBy);
+  const [sortBy, setSortBy] = useState("");
+  const { reviews, loading, err } = useReviews(
+    categorySlug,
+    sortBy,
+    pageNumber
+  );
+
+  const handleClick = (num) => {
+    setPageNumber((currPageNumber) => currPageNumber + num);
+  };
 
   if (loading) {
     return <h3>LOADING...</h3>;
@@ -16,9 +25,14 @@ const Reviews = () => {
   if (err) {
     return <p>{err}</p>;
   }
+  console.log(reviews, "<<<< IN REVIEWS");
+  // const lastPage = Math.ceil(reviews.length / 3);
 
   return (
     <section className="reviews">
+      <Link to="/write-review">
+        <button className="Styled-button-large">Write A Review!</button>
+      </Link>
       {categorySlug ? (
         <h2 className="Reviews__category--title">{`${capitalizeStrings(
           categorySlug
@@ -29,19 +43,19 @@ const Reviews = () => {
       <h2 className="Reviews__sort-by-header">sort reviews by:</h2>
       <nav className="Reviews__container--sort-by-buttons">
         <button
-          className="Reviews__sort-by-button"
+          className="Styled-button-medium"
           onClick={() => setSortBy("sort_by=created_at")}
         >
           Date
         </button>
         <button
-          className="Reviews__sort-by-button"
+          className="Styled-button-medium"
           onClick={() => setSortBy("sort_by=comment_count")}
         >
           Amount Of Comments
         </button>
         <button
-          className="Reviews__sort-by-button"
+          className="Styled-button-medium"
           onClick={() => setSortBy("sort_by=votes")}
         >
           Amount Of Votes
@@ -69,6 +83,44 @@ const Reviews = () => {
           );
         })}
       </ul>
+      <div>
+        <span>
+          {pageNumber === 1 ? (
+            <button
+              className="Styled-button-small Styled-button-small-disabled"
+              disabled
+            >
+              previous page
+            </button>
+          ) : (
+            <button
+              className="Styled-button-small"
+              onClick={() => {
+                handleClick(-1);
+              }}
+            >
+              previous page
+            </button>
+          )}
+          {reviews.length < 3 ? (
+            <button
+              className="Styled-button-small Styled-button-small-disabled"
+              disabled
+            >
+              next page
+            </button>
+          ) : (
+            <button
+              className="Styled-button-small"
+              onClick={() => {
+                handleClick(1);
+              }}
+            >
+              next page
+            </button>
+          )}
+        </span>
+      </div>
     </section>
   );
 };

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../contexts/User";
 
-const Header = ({ user, setUser }) => {
+const Header = () => {
+  const { user, setUser } = useContext(UserContext);
   const logOutUser = (user) => {
     localStorage.removeItem(user);
     setUser(null);

@@ -8,10 +8,7 @@ const Expandable = ({ amountOfComments, children }) => {
   };
   return (
     <div>
-      <button
-        className="Expandable__button--show-comments"
-        onClick={toggleIsOpen}
-      >
+      <button className="Styled-button-large" onClick={toggleIsOpen}>
         {isOpen ? "Hide Comments!" : `Show Comments (${amountOfComments})`}
       </button>
       {isOpen && children}

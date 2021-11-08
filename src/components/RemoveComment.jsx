@@ -28,7 +28,7 @@ const RemoveComment = ({ comment_id, comments, setComments }) => {
   return (
     <div>
       <button
-        className="RemoveComment__button"
+        className="Styled-button-large"
         onClick={() => {
           handleDelete(comment_id);
         }}

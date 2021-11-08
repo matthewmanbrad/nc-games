@@ -1,22 +1,26 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { getUserInfo } from "../utils/api";
+import { UserContext } from "../contexts/User";
 
-const LogInForm = ({ setUser, user }) => {
+const LogInForm = () => {
   const [newUser, setNewUser] = useState("");
   const [isInvalidUser, setIsInvalidUser] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
+  const { user, setUser } = useContext(UserContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsInvalidUser(false);
+    console.log(newUser, "IN login form component");
     getUserInfo(newUser)
       .then((user) => {
+        console.log(user);
         setUser(user.username);
         localStorage.setItem("loggedInUser", JSON.stringify(user));
       })
       .then(() => {
         setSubmitted(true);
+        setIsInvalidUser(false);
       })
       .catch((err) => {
         setIsInvalidUser(true);
