@@ -33,6 +33,7 @@ const AlterCommentVotes = ({ comment_id, votes }) => {
             className="voting__button--plus"
             onClick={() => {
               handleVote(1);
+              setHasVotedPlus(!hasVotedPlus);
             }}
           >
             +
@@ -48,6 +49,7 @@ const AlterCommentVotes = ({ comment_id, votes }) => {
             className="voting__button--minus"
             onClick={() => {
               handleVote(-1);
+              setHasVotedMinus(!hasVotedMinus);
             }}
           >
             +
@@ -59,7 +61,6 @@ const AlterCommentVotes = ({ comment_id, votes }) => {
         )}
       </span>
       {hasVotedPlus && hasVotedMinus && resetButtons()}
-      {isError && <h2>Unable to alter votes</h2>}
     </>
   );
 };

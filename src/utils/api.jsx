@@ -54,7 +54,6 @@ export const getUsers = async () => {
 
 export const getUserInfo = async (username) => {
   const { data } = await gamesApi.get(`/users/${username}`);
-  console.log(data.user);
   return data.user;
 };
 
@@ -72,6 +71,5 @@ export const deleteComment = async (comment_id) => {
 
 export const postReview = async (review) => {
   const { data } = await gamesApi.post("/reviews", review);
-  console.log(review);
   return data.review;
 };
