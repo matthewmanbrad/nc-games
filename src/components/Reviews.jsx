@@ -25,8 +25,6 @@ const Reviews = () => {
   if (err) {
     return <p>{err}</p>;
   }
-  console.log(reviews, "<<<< IN REVIEWS");
-  // const lastPage = Math.ceil(reviews.length / 3);
 
   return (
     <section className="reviews">

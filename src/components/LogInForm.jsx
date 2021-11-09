@@ -11,7 +11,6 @@ const LogInForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsInvalidUser(false);
-    console.log(newUser, "IN login form component");
     getUserInfo(newUser)
       .then((user) => {
         setUser(user.username);

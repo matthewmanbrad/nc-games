@@ -15,7 +15,6 @@ const WriteReview = () => {
     e.preventDefault();
     setSubmitted(false);
     setIsError(false);
-    console.log(newReview, "<<<<<IN WRITE REVIEW");
     postReview(newReview)
       .then((review) => {
         setReviewTimeout(true);

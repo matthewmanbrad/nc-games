@@ -10,7 +10,6 @@ const useReviews = (categorySlug, sortBy, pageNumber) => {
     setErr(null);
     getReviews(categorySlug, sortBy, pageNumber)
       .then((reviewsFromApi) => {
-        console.log(reviewsFromApi);
         setReviews(reviewsFromApi);
         setLoading(false);
       })
