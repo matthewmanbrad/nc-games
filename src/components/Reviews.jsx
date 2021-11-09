@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import useReviews from "../hooks/useReviews";
 import { capitalizeStrings } from "../utils/utils_functions";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { timeConverter } from "../utils/utils_functions";
 
 const Reviews = () => {

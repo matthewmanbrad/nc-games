@@ -61,6 +61,7 @@ const AlterCommentVotes = ({ comment_id, votes }) => {
         )}
       </span>
       {hasVotedPlus && hasVotedMinus && resetButtons()}
+      {isError && <h2>Unable to like comment!</h2>}
     </>
   );
 };
