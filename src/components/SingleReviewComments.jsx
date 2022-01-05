@@ -34,7 +34,7 @@ const SingleReviewComments = ({ review_id, username }) => {
   };
 
   if (loading) {
-    return <h3>LOADING...</h3>;
+    return <h3>LOADING..</h3>;
   }
   if (err) {
     return <p>{err}</p>;
