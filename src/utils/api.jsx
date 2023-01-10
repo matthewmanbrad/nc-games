@@ -1,6 +1,6 @@
 import axios from "axios";
 const gamesApi = axios.create({
-  baseURL: "https://brads-nc-games.herokuapp.com/api",
+  baseURL: "https://silly-sherbet-5b5f4e.netlify.app/api",
 });
 
 export const getCategories = async () => {
